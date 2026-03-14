@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary Surajudeen</title>
+<style>
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#ffe6f0;
+  color:#333;
+  text-align:center;
+  overflow-x:hidden;
+}
+header{
+  padding:60px 20px;
+}
+section{
+  padding:40px 20px;
+}
+.card{
+  background:white;
+  margin:20px auto;
+  padding:20px;
+  max-width:700px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:8px;
+  background:#ff4d88;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+#message{
+  display:none;
+  margin-top:20px;
+  font-size:18px;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+.gallery img{
+  width:100%;
+  border-radius:10px;
+}
+input{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}/* floating hearts */ .heart{ position:fixed; bottom:-20px; font-size:20px; animation: floatUp 6s linear infinite; }
+
+@keyframes floatUp{ 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(-110vh);opacity:0} }
+
+#surprise{ display:none; font-size:22px; margin-top:20px; }
+
+</style>
+</head>
+<body><header>
+<h1>Happy Anniversary My love ❤️</h1>
+<p>March 21</p>
+<p id="days"></p>
+</header><section>
+<div class="card">
+<h2>How It Started</h2>
+<p>
+One of my favorite memories is the first time you noticed I was sad in class.
+You didn't ignore it. You cared. That moment meant more to me than you probably know.
+</p>
+</div>
+</section><section>
+<div class="card">
+<h2>Our Memories 📸</h2>
+<div class="gallery">
+<img src="photo1.jpg" alt="memory">
+<img src="photo2.jpg" alt="memory">
+<img src="photo3.jpg" alt="memory">
+</div>
+<p>Replace these with our favorite pictures.</p>
+</div>
+</section><section>
+<div class="card">
+<h2>Reasons I Appreciate You</h2>
+<ul style="list-style:none;padding:0;">
+<li>You noticed when I was sad</li>
+<li>You pay attention to how I feel</li>
+<li>You make me smile</li>
+<li>You are kind and thoughtful</li>
+<li>You make ordinary days special</li>
+</ul>
+</div>
+</section><section>
+<div class="card">
+<h2>Secret Message 🔐</h2>
+<p>Enter our special date to unlock the message</p>
+<input type="password" id="password" placeholder="Enter password">
+<br><br>
+<button onclick="checkPassword()">Unlock</button>
+<p id="secret" style="display:none;font-size:18px;margin-top:15px;">I'm really grateful to have you in my life Surajudeen. Happy Anniversary ❤️</p>
+</div>
+</section><section>
+<div class="card">
+<h2>Open Your Surprise 🎁</h2>
+<button onclick="showSurprise()">Open Gift</button>
+<p id="surprise">You make my world brighter every day. I'm so happy we found each other. Happy Anniversary Surajudeen ❤️</p>
+</div>
+</section><audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio><script>
+
+// relationship days counter
+const startDate = new Date("2025-03-21");
+const today = new Date();
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000*60*60*24));
+document.getElementById("days").innerText = "We've been together for " + diffDays + " days ❤️";
+
+// password message
+function checkPassword(){
+  const password = document.getElementById("password").value;
+  if(password === "21/3"){
+    document.getElementById("secret").style.display = "block";
+  }else{
+    alert("Wrong password ❤️ Try again");
+  }
+}
+
+// surprise button
+function showSurprise(){
+  document.getElementById("surprise").style.display = "block";
+}
+
+// floating hearts generator
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (Math.random()*20+10)+"px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },6000);
+}
+
+setInterval(createHeart,800);
+
+</script></body>
+</html>
